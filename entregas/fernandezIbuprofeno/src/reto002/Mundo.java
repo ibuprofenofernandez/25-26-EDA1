@@ -47,7 +47,11 @@ public class Mundo {
     private void procesarOpcion(int opcion) {
         switch (opcion) {
             case 1:
-                llegaNiño();
+                recibirNiño();
+                break;
+
+            case 2:
+                empezarJuego();
                 break;
 
             case 13:
@@ -59,11 +63,16 @@ public class Mundo {
         }
     }
 
+    private void empezarJuego() {
+        ludoteca.empezarJuego();
+    }
+
     private void mostrarEstado() {
+        console.clearScreen();
         ludoteca.mostrarEstado();
     }
 
-    private void llegaNiño() {
+    private void recibirNiño() {
         Niño niño = new Niño(inventarNombre(), inventarEdad());
         niño.mostrarEstado();
         ludoteca.recibirNiño(niño);

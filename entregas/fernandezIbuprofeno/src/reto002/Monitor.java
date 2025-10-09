@@ -50,4 +50,14 @@ public class Monitor {
         numeroNiños--;
         return niños[numeroNiños];
     }
+
+    public boolean puedeJugar() {
+        return !estaJugando() && numeroNiños >= 5;
+    }
+
+    public void empezarJuego() {
+        assert (!estaJugando()) : "BOOM!!!";
+        jugando = true;
+        console.writeln(nombre + " empieza a jugar!!!");
+    }
 }
