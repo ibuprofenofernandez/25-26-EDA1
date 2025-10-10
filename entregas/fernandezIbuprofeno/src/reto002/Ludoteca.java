@@ -14,11 +14,11 @@ public class Ludoteca {
         console = new Console();
     }
 
-    public void recibirNiño(Niño niño) {
-        lydia.recibeNiño(niño);
+    public void recibir(Niño niño) {
+        lydia.recibir(niño);
 
         if (!aisha.estaJugando()) {
-            lydia.entregaNiño(aisha);
+            lydia.entregar(aisha);
         }
 
     }
@@ -29,9 +29,9 @@ public class Ludoteca {
         dalsy.mostrarEstado();
     }
 
-    public void empezarJuego() {
+    public void jugar() {
         if (aisha.puedeJugar()) {
-            aisha.empezarJuego();
+            aisha.jugar();
         } else {
             console.writeln("No se puede jugar porque " + (aisha.puedeJugar() ? "ya está jugando!" : "faltan niños!"));
         }

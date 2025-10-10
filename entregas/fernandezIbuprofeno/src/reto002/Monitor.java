@@ -19,7 +19,7 @@ public class Monitor {
         console = new Console();
     }
 
-    public void recibeNiño(Niño niño) {
+    public void recibir(Niño niño) {
         assert (numeroNiños < LIMITE_NIÑOS) : "No caben mas!!!";
         niños[numeroNiños] = niño;
         numeroNiños++;
@@ -39,10 +39,10 @@ public class Monitor {
         return jugando == true;
     }
 
-    public void entregaNiño(Monitor otroMonitor) {
+    public void entregar(Monitor otroMonitor) {
         assert (numeroNiños > 0);
         Niño niño = sacarNiño();
-        otroMonitor.recibeNiño(niño);
+        otroMonitor.recibir(niño);
     }
 
     private Niño sacarNiño() {
@@ -55,7 +55,7 @@ public class Monitor {
         return !estaJugando() && numeroNiños >= 5;
     }
 
-    public void empezarJuego() {
+    public void jugar() {
         assert (!estaJugando()) : "BOOM!!!";
         jugando = true;
         console.writeln(nombre + " empieza a jugar!!!");

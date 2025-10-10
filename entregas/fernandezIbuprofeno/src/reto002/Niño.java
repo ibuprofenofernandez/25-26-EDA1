@@ -8,14 +8,13 @@ public class Niño {
     private int edad;
     Console console;
 
-    public Niño(String string, int int1) {
-        this.nombre = string;
-        this.edad = int1;
+    public Niño(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
         console = new Console();
     }
 
     public void mostrarEstado() {
-        console.write (nombre + " [" + edad + " años] / ");
+        console.writeln("> " + nombre + " [" + edad + " años] / ");
     }
-
 }

@@ -45,26 +45,17 @@ public class Mundo {
     }
 
     private void procesarOpcion(int opcion) {
-        switch (opcion) {
-            case 1:
-                recibirNiño();
-                break;
-
-            case 2:
-                empezarJuego();
-                break;
-
-            case 13:
-                mostrarEstado();
-                break;
-
-            default:
-                break;
+        if (opcion == 1) {
+            recibirNiño();
+        } else if (opcion == 2) {
+            empezarJuego();
+        } else if (opcion == 13) {
+            mostrarEstado();
         }
     }
 
     private void empezarJuego() {
-        ludoteca.empezarJuego();
+        ludoteca.jugar();
     }
 
     private void mostrarEstado() {
@@ -75,7 +66,7 @@ public class Mundo {
     private void recibirNiño() {
         Niño niño = new Niño(inventarNombre(), inventarEdad());
         niño.mostrarEstado();
-        ludoteca.recibirNiño(niño);
+        ludoteca.recibir(niño);
     }
 
     private int inventarEdad() {
