@@ -39,7 +39,9 @@ public class Mundo {
         console.writeln("10. Simular intento de inicio del juego de la rana");
         console.writeln("11. Paso de niños menores de 5 años a monitora Dalsy");
         console.writeln("12. Alarma contra incendios y protocolo de emergencia");
+        console.writeln("--FUNCIONES DE SOPORTE:--");
         console.writeln("13. Mostrar monitoras y niños");
+        console.writeln("14. Pedirle a Aisha que deje de jugar.");
         console.writeln("");
         console.writeln("0.  Salir");
     }
@@ -51,11 +53,17 @@ public class Mundo {
             empezarJuego();
         } else if (opcion == 13) {
             mostrarEstado();
+        } else if (opcion == 14) {
+            detenerJuego();
         }
     }
 
     private void empezarJuego() {
         ludoteca.jugar();
+    }
+
+    private void detenerJuego(){
+        ludoteca.detenerJuego();
     }
 
     private void mostrarEstado() {
