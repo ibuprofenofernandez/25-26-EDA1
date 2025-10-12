@@ -5,31 +5,41 @@ import utils.*;
 public class Monitor {
 
     private String nombre;
-    private Niño[] niños;
-    private int numeroNiños;
-    private final int LIMITE_NIÑOS = 20;
+    private Niño primerNiño;
     Console console;
     private boolean jugando;
+    private int numeroNiños;
 
     public Monitor(String nombre) {
         this.nombre = nombre;
-        niños = new Niño[20];
+        primerNiño = null;
         numeroNiños = 0;
         jugando = false;
         console = new Console();
     }
 
     public void recibir(Niño niño) {
-        assert (numeroNiños < LIMITE_NIÑOS) : "No caben mas!!!";
-        niños[numeroNiños] = niño;
-        numeroNiños++;
+        if (primerNiño == null) {
+            primerNiño = niño;
+        } else {
+            primerNiño.recibir(niño);
+        }
+        contar();
+    }
+
+    private void contar() {
+        if (primerNiño == null) {
+            numeroNiños = 0;
+        } else {
+            numeroNiños = primerNiño.contar();
+        }
     }
 
     public void mostrarEstado() {
         console.writeln(nombre);
         console.writeln("Vigilando a " + numeroNiños + " niños");
-        for (int i = 0; i < numeroNiños; i++) {
-            niños[i].mostrarEstado();
+        if (primerNiño != null) {
+            primerNiño.mostrarEstado();
         }
         console.writeln();
         console.writeln("=".repeat(20));
@@ -40,18 +50,8 @@ public class Monitor {
     }
 
     public void entregar(Monitor otroMonitor) {
-        assert (numeroNiños > 0);
-        int niñosPorPasar = numeroNiños;
-        for(int i=0;i<niñosPorPasar;i++){
-            Niño niño = sacarNiño();
-            otroMonitor.recibir(niño);
-        }
-    }
-
-    private Niño sacarNiño() {
-        assert (numeroNiños > 0);
-        numeroNiños--;
-        return niños[numeroNiños];
+        otroMonitor.recibir(primerNiño);
+        primerNiño = null;
     }
 
     public boolean puedeJugar() {
@@ -59,16 +59,16 @@ public class Monitor {
     }
 
     public void jugar() {
-        if (puedeJugar()){
+        if (puedeJugar()) {
             jugando = true;
             console.writeln(nombre + " empieza a jugar!!!");
-        }else{
-            jugando=false;
+        } else {
+            jugando = false;
             console.writeln(nombre + " no puede empezar a jugar!!!");
         }
     }
 
     public void detenerJuego() {
-        jugando=false;
+        jugando = false;
     }
 }
