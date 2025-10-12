@@ -28,18 +28,21 @@ public class Monitor {
     }
 
     private void contar() {
-        if (primerNiño == null) {
-            numeroNiños = 0;
-        } else {
-            numeroNiños = primerNiño.contar();
+        numeroNiños = 0;
+        Niño actual = primerNiño;
+        while (actual != null) {
+            numeroNiños++;
+            actual = actual.siguiente();
         }
     }
 
     public void mostrarEstado() {
-        console.writeln(nombre);
+        console.writeln(nombre);        
         console.writeln("Vigilando a " + numeroNiños + " niños");
-        if (primerNiño != null) {
-            primerNiño.mostrarEstado();
+        Niño actual = primerNiño;
+        while (actual != null) {
+            actual.mostrarEstado();
+            actual = actual.siguiente();
         }
         console.writeln();
         console.writeln("=".repeat(20));
