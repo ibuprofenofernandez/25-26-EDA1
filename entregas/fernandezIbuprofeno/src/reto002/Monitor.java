@@ -41,8 +41,11 @@ public class Monitor {
 
     public void entregar(Monitor otroMonitor) {
         assert (numeroNiños > 0);
-        Niño niño = sacarNiño();
-        otroMonitor.recibir(niño);
+        int niñosPorPasar = numeroNiños;
+        for(int i=0;i<niñosPorPasar;i++){
+            Niño niño = sacarNiño();
+            otroMonitor.recibir(niño);
+        }
     }
 
     private Niño sacarNiño() {
@@ -56,8 +59,16 @@ public class Monitor {
     }
 
     public void jugar() {
-        assert (!estaJugando()) : "BOOM!!!";
-        jugando = true;
-        console.writeln(nombre + " empieza a jugar!!!");
+        if (puedeJugar()){
+            jugando = true;
+            console.writeln(nombre + " empieza a jugar!!!");
+        }else{
+            jugando=false;
+            console.writeln(nombre + " no puede empezar a jugar!!!");
+        }
+    }
+
+    public void detenerJuego() {
+        jugando=false;
     }
 }

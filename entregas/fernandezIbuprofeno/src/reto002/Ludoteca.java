@@ -16,11 +16,6 @@ public class Ludoteca {
 
     public void recibir(Niño niño) {
         lydia.recibir(niño);
-
-        if (!aisha.estaJugando()) {
-            lydia.entregar(aisha);
-        }
-
     }
 
     public void mostrarEstado() {
@@ -30,11 +25,22 @@ public class Ludoteca {
     }
 
     public void jugar() {
-        if (aisha.puedeJugar()) {
-            aisha.jugar();
+        String mensaje = "";
+        if (aisha.estaJugando()) {
+            mensaje = "Ya está jugando!";
         } else {
-            console.writeln("No se puede jugar porque " + (aisha.puedeJugar() ? "ya está jugando!" : "faltan niños!"));
+            lydia.entregar(aisha);
+            aisha.jugar();
+            mensaje = "Empieza el juego!";
+            if (!aisha.estaJugando()) {
+                aisha.entregar(lydia);
+                mensaje = "No hay suficientes niños!";
+            }
         }
+        console.writeln(mensaje);
     }
 
+    public void detenerJuego() {
+        aisha.detenerJuego();
+    }
 }
