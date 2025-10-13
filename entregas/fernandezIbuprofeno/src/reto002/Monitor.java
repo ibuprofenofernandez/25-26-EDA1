@@ -19,10 +19,14 @@ public class Monitor {
     }
 
     public void recibir(Niño niño) {
-        if (primerNiño == null) {
+        Niño actual = primerNiño;
+        if (actual == null) {
             primerNiño = niño;
         } else {
-            primerNiño.recibir(niño);
+            while (actual.siguiente() != null) {
+                actual = actual.siguiente();
+            }
+            actual.recibir(niño);
         }
         contar();
     }
@@ -37,7 +41,7 @@ public class Monitor {
     }
 
     public void mostrarEstado() {
-        console.writeln(nombre);        
+        console.writeln(nombre);
         console.writeln("Vigilando a " + numeroNiños + " niños");
         Niño actual = primerNiño;
         while (actual != null) {

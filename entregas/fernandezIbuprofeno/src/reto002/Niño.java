@@ -20,23 +20,12 @@ public class Niño {
         console.writeln("> " + nombre + " [" + edad + " años] / ");
     }
 
-    public void recibir(Niño niño) {
-        if (siguiente == null) {
-            siguiente = niño;
-        } else {
-            siguiente.recibir(niño);
-        }
-    }
-
-    public int contar() {
-        if (siguiente == null) {
-            return 1;
-        } else {
-            return 1 + siguiente.contar();
-        }
-    }
-
     public Niño siguiente() {
         return siguiente;
     }
+
+    public void recibir(Niño niño) {
+        siguiente = niño;
+    }
+    
 }
