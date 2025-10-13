@@ -78,4 +78,28 @@ public class Monitor {
     public void detenerJuego() {
         jugando = false;
     }
+
+    public void presentar() {
+        console.writeln("Soy " + nombre);
+        Niño actual = primerNiño;
+        while (actual != null) {
+            actual.presentar();
+            actual = actual.siguiente();
+        }
+        console.writeln();
+        console.writeln("=".repeat(20));
+    }
+
+    public void presentar(int edadMinima) {
+        console.writeln("Soy " + nombre);
+        Niño actual = primerNiño;
+        while (actual != null) {
+            if (actual.getEdad() >= edadMinima) {
+                actual.presentar();
+            }
+            actual = actual.siguiente();
+        }
+        console.writeln();
+        console.writeln("=".repeat(20));
+    }
 }

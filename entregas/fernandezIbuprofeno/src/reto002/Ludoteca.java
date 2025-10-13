@@ -40,7 +40,15 @@ public class Ludoteca {
         console.writeln(mensaje);
     }
 
+    public void presentar(){
+        aisha.presentar();
+    }
+    
     public void detenerJuego() {
         aisha.detenerJuego();
+    }
+
+    public void presentar(int edadMinima) {
+        aisha.presentar(edadMinima);
     }
 }

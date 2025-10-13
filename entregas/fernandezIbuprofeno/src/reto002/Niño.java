@@ -27,5 +27,12 @@ public class Niño {
     public void recibir(Niño niño) {
         siguiente = niño;
     }
-    
+
+    public void presentar() {
+        console.writeln("> Soy " + nombre);
+    }
+
+    public int getEdad() {
+        return edad;
+    }
 }

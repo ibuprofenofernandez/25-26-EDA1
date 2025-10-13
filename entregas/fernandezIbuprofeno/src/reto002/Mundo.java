@@ -55,7 +55,19 @@ public class Mundo {
             mostrarEstado();
         } else if (opcion == 14) {
             detenerJuego();
+        } else if (opcion == 3) {
+            presentar();
+        } else if (opcion == 4) {
+            presentar(5);
         }
+    }
+
+    private void presentar(int edadMinima) {
+        ludoteca.presentar(5);
+    }
+
+    private void presentar() {
+        ludoteca.presentar();
     }
 
     private void empezarJuego() {
