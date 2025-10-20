@@ -42,6 +42,7 @@ public class Mundo {
         console.writeln("--FUNCIONES DE SOPORTE:--");
         console.writeln("13. Mostrar monitoras y niños");
         console.writeln("14. Pedirle a Aisha que deje de jugar.");
+        console.writeln("15. Pedirle a Aisha que nos diga cuántos niños hay.");
         console.writeln("");
         console.writeln("0.  Salir");
     }
@@ -55,7 +56,13 @@ public class Mundo {
             mostrarEstado();
         } else if (opcion == 14) {
             detenerJuego();
+        } else if (opcion == 15) {
+            contar();
         }
+    }
+
+    private void contar() {
+        ludoteca.contar();
     }
 
     private void empezarJuego() {

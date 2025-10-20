@@ -43,4 +43,8 @@ public class Ludoteca {
     public void detenerJuego() {
         aisha.detenerJuego();
     }
+
+    public void contar() {
+        aisha.contar();
+    }
 }

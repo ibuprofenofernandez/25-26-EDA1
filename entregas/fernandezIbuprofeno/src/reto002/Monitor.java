@@ -27,12 +27,13 @@ public class Monitor {
         contar();
     }
 
-    private void contar() {
+    public void contar() {
         if (primerNiño == null) {
             numeroNiños = 0;
         } else {
             numeroNiños = primerNiño.contar();
         }
+        console.writeln("Hay " + numeroNiños + " niños");
     }
 
     public void mostrarEstado() {
