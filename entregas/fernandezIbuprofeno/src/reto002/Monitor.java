@@ -94,4 +94,13 @@ public class Monitor {
         console.writeln();
         console.writeln("=".repeat(20));
     }
+
+    public void presentarPrimeros(int niñosPorPresentar) {
+        if (primerNiño != null) {
+            niñosPorPresentar = niñosPorPresentar - 1;
+            primerNiño.presentarPrimeros(niñosPorPresentar);
+        } else {
+            console.writeln("No hay niños!");
+        }
+    }
 }

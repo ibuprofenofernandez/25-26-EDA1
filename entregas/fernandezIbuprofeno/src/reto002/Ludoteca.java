@@ -55,4 +55,8 @@ public class Ludoteca {
     public void presentar(int edadMinima) {
         aisha.presentar(edadMinima);
     }
+
+    public void presentarPrimeros(int niñosPorPresentar) {
+        aisha.presentarPrimeros(niñosPorPresentar);
+    }
 }

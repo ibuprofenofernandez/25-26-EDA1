@@ -62,4 +62,12 @@ public class Niño {
             siguiente.presentar(edadMinima);
         }
     }
+
+    public void presentarPrimeros(int niñosPorPresentar) {
+        console.writeln("> Soy " + nombre + " y tengo " + edad + " años");
+        if (siguiente != null && niñosPorPresentar > 0) {
+            niñosPorPresentar = niñosPorPresentar - 1;
+            siguiente.presentarPrimeros(niñosPorPresentar);
+        }
+    }
 }

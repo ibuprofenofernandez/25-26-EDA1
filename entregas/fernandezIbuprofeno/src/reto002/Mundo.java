@@ -32,7 +32,7 @@ public class Mundo {
         console.writeln("3.*  Aisha se presenta y pide a los niños que se presenten");
         console.writeln("4.*  Aisha pide que se presenten los niños mayores de 5 años");
         console.writeln("5.   Aisha pide que se presenten los niños cuyo nombre empieza por letra");
-        console.writeln("6.   Aisha pide que se presenten los cinco primeros niños");
+        console.writeln("6.*  Aisha pide que se presenten los cinco primeros niños");
         console.writeln("7.   Aisha pide que se presenten los cinco últimos niños");
         console.writeln("8.   Aisha y Lydia dicen cuántos niños hay en cola");
         console.writeln("9.   Aisha dice la edad promedio de los niños en cola");
@@ -53,10 +53,15 @@ public class Mundo {
             case 2 -> empezarJuego();
             case 3 -> presentar();
             case 4 -> presentar(5);
+            case 6 -> presentarPrimeros(5);
             case 13 -> mostrarEstado();
             case 14 -> detenerJuego();
             case 15 -> contar();
         }
+    }
+
+    private void presentarPrimeros(int niñosPorPresentar) {
+        ludoteca.presentarPrimeros(niñosPorPresentar);
     }
 
     private void presentar(int edadMinima) {
