@@ -53,6 +53,7 @@ public class Monitor {
     public void entregar(Monitor otroMonitor) {
         otroMonitor.recibir(primerNiño);
         primerNiño = null;
+        contar();
     }
 
     public boolean puedeJugar() {
@@ -99,6 +100,19 @@ public class Monitor {
         if (primerNiño != null) {
             niñosPorPresentar = niñosPorPresentar - 1;
             primerNiño.presentarPrimeros(niñosPorPresentar);
+        } else {
+            console.writeln("No hay niños!");
+        }
+    }
+
+    public void presentarUltimos(int niñosPorPresentar) {
+        if (primerNiño != null) {
+            if (niñosPorPresentar < numeroNiños) {
+                int primeroPorPresentar = numeroNiños - niñosPorPresentar;
+                primerNiño.presentarUltimos(primeroPorPresentar, 0);
+            } else {
+                primerNiño.presentar();
+            }
         } else {
             console.writeln("No hay niños!");
         }

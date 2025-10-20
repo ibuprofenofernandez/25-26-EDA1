@@ -59,4 +59,8 @@ public class Ludoteca {
     public void presentarPrimeros(int niñosPorPresentar) {
         aisha.presentarPrimeros(niñosPorPresentar);
     }
+
+    public void presentarUltimos(int niñosPorPresentar) {
+        aisha.presentarUltimos(niñosPorPresentar);
+    }
 }

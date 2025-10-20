@@ -54,6 +54,7 @@ public class Mundo {
             case 3 -> presentar();
             case 4 -> presentar(5);
             case 6 -> presentarPrimeros(5);
+            case 7 -> presentarUltimos(5);
             case 13 -> mostrarEstado();
             case 14 -> detenerJuego();
             case 15 -> contar();
@@ -62,6 +63,10 @@ public class Mundo {
 
     private void presentarPrimeros(int niñosPorPresentar) {
         ludoteca.presentarPrimeros(niñosPorPresentar);
+    }
+
+    private void presentarUltimos(int niñosPorPresentar) {
+        ludoteca.presentarUltimos(niñosPorPresentar);
     }
 
     private void presentar(int edadMinima) {

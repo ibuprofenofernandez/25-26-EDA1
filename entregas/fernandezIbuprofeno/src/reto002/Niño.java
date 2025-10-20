@@ -36,10 +36,14 @@ public class Niño {
     }
 
     public void presentar() {
-        console.writeln("> Soy " + nombre + " y tengo " + edad + " años");
+        decirDatos();
         if (siguiente != null) {
             siguiente.presentar();
         }
+    }
+
+    private void decirDatos() {
+        console.writeln("> Soy " + nombre + " y tengo " + edad + " años");
     }
 
     public int getEdad() {
@@ -56,7 +60,7 @@ public class Niño {
 
     public void presentar(int edadMinima) {
         if (edad >= edadMinima) {
-            console.writeln("> Soy " + nombre + " y tengo " + edad + " años");
+            decirDatos();
         }
         if (siguiente != null) {
             siguiente.presentar(edadMinima);
@@ -64,10 +68,20 @@ public class Niño {
     }
 
     public void presentarPrimeros(int niñosPorPresentar) {
-        console.writeln("> Soy " + nombre + " y tengo " + edad + " años");
+        decirDatos();
         if (siguiente != null && niñosPorPresentar > 0) {
             niñosPorPresentar = niñosPorPresentar - 1;
             siguiente.presentarPrimeros(niñosPorPresentar);
+        }
+    }
+
+    public void presentarUltimos(int niñosPorPresentar, int posicion) {
+        if (posicion >= niñosPorPresentar) {
+            decirDatos();
+        }
+        if (siguiente != null) {
+            posicion = posicion + 1;
+            siguiente.presentarUltimos(niñosPorPresentar, posicion);
         }
     }
 }
