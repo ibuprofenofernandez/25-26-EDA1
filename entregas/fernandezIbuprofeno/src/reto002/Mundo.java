@@ -33,7 +33,7 @@ public class Mundo {
         console.writeln("4.*  Aisha pide que se presenten los niños mayores de 5 años");
         console.writeln("5.   Aisha pide que se presenten los niños cuyo nombre empieza por letra");
         console.writeln("6.*  Aisha pide que se presenten los cinco primeros niños");
-        console.writeln("7.   Aisha pide que se presenten los cinco últimos niños");
+        console.writeln("7.*  Aisha pide que se presenten los cinco últimos niños");
         console.writeln("8.   Aisha y Lydia dicen cuántos niños hay en cola");
         console.writeln("9.   Aisha dice la edad promedio de los niños en cola");
         console.writeln("10.  Simular intento de inicio del juego de la rana");
