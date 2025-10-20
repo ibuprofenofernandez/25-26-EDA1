@@ -69,7 +69,29 @@ public class Monitor {
         }
     }
 
+    public void presentar() {
+        console.writeln("Soy " + nombre);
+        if (primerNiño != null) {
+            primerNiño.presentar();
+        } else {
+            console.writeln("No hay niños!");
+        }
+        console.writeln();
+        console.writeln("=".repeat(20));
+    }
+
     public void detenerJuego() {
         jugando = false;
+    }
+
+    public void presentar(int edadMinima) {
+        console.writeln("Soy " + nombre);
+        if (primerNiño != null) {
+            primerNiño.presentar(edadMinima);
+        } else {
+            console.writeln("No hay niños!");
+        }
+        console.writeln();
+        console.writeln("=".repeat(20));
     }
 }

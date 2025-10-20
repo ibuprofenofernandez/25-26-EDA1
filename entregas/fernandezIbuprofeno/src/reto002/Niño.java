@@ -18,6 +18,9 @@ public class Niño {
 
     public void mostrarEstado() {
         console.writeln("> " + nombre + " [" + edad + " años] / ");
+        if (siguiente != null) {
+            siguiente.mostrarEstado();
+        }
     }
 
     public Niño siguiente() {
@@ -25,11 +28,18 @@ public class Niño {
     }
 
     public void recibir(Niño niño) {
-        siguiente = niño;
+        if (siguiente == null) {
+            siguiente = niño;
+        } else {
+            siguiente.recibir(niño);
+        }
     }
 
     public void presentar() {
         console.writeln("> Soy " + nombre + " y tengo " + edad + " años");
+        if (siguiente != null) {
+            siguiente.presentar();
+        }
     }
 
     public int getEdad() {
@@ -37,6 +47,19 @@ public class Niño {
     }
 
     public int contar() {
-        return siguiente.contar() + 1;
+        if (siguiente != null) {
+            return siguiente.contar() + 1;
+        } else {
+            return 1;
+        }
+    }
+
+    public void presentar(int edadMinima) {
+        if (edad >= edadMinima) {
+            console.writeln("> Soy " + nombre + " y tengo " + edad + " años");
+        }
+        if (siguiente != null) {
+            siguiente.presentar(edadMinima);
+        }
     }
 }

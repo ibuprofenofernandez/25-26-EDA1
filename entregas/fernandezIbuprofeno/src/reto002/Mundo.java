@@ -27,38 +27,44 @@ public class Mundo {
         console.writeln("        LUDOTECA - SIMULACIÓN");
         console.writeln("========================================");
         console.writeln("");
-        console.writeln("1.  Simular llegada de niño");
-        console.writeln("2.  Simular intento de inicio de juego");
-        console.writeln("3.  Aisha se presenta y pide a los niños que se presenten");
-        console.writeln("4.  Aisha pide que se presenten los niños mayores de 5 años");
-        console.writeln("5.  Aisha pide que se presenten los niños cuyo nombre empieza por letra");
-        console.writeln("6.  Aisha pide que se presenten los cinco primeros niños");
-        console.writeln("7.  Aisha pide que se presenten los cinco últimos niños");
-        console.writeln("8.  Aisha y Lydia dicen cuántos niños hay en cola");
-        console.writeln("9.  Aisha dice la edad promedio de los niños en cola");
-        console.writeln("10. Simular intento de inicio del juego de la rana");
-        console.writeln("11. Paso de niños menores de 5 años a monitora Dalsy");
-        console.writeln("12. Alarma contra incendios y protocolo de emergencia");
+        console.writeln("1.*  Simular llegada de niño");
+        console.writeln("2.*  Simular intento de inicio de juego");
+        console.writeln("3.*  Aisha se presenta y pide a los niños que se presenten");
+        console.writeln("4.*  Aisha pide que se presenten los niños mayores de 5 años");
+        console.writeln("5.   Aisha pide que se presenten los niños cuyo nombre empieza por letra");
+        console.writeln("6.   Aisha pide que se presenten los cinco primeros niños");
+        console.writeln("7.   Aisha pide que se presenten los cinco últimos niños");
+        console.writeln("8.   Aisha y Lydia dicen cuántos niños hay en cola");
+        console.writeln("9.   Aisha dice la edad promedio de los niños en cola");
+        console.writeln("10.  Simular intento de inicio del juego de la rana");
+        console.writeln("11.  Paso de niños menores de 5 años a monitora Dalsy");
+        console.writeln("12.  Alarma contra incendios y protocolo de emergencia");
         console.writeln("--FUNCIONES DE SOPORTE:--");
-        console.writeln("13. Mostrar monitoras y niños");
-        console.writeln("14. Pedirle a Aisha que deje de jugar.");
-        console.writeln("15. Pedirle a Aisha que nos diga cuántos niños hay.");
+        console.writeln("13.* Mostrar monitoras y niños");
+        console.writeln("14.* Pedirle a Aisha que deje de jugar.");
+        console.writeln("15.* Pedirle a Aisha que nos diga cuántos niños hay.");
         console.writeln("");
         console.writeln("0.  Salir");
     }
 
     private void procesarOpcion(int opcion) {
-        if (opcion == 1) {
-            recibirNiño();
-        } else if (opcion == 2) {
-            empezarJuego();
-        } else if (opcion == 13) {
-            mostrarEstado();
-        } else if (opcion == 14) {
-            detenerJuego();
-        } else if (opcion == 15) {
-            contar();
+        switch (opcion) {
+            case 1 -> recibirNiño();
+            case 2 -> empezarJuego();
+            case 3 -> presentar();
+            case 4 -> presentar(5);
+            case 13 -> mostrarEstado();
+            case 14 -> detenerJuego();
+            case 15 -> contar();
         }
+    }
+
+    private void presentar(int edadMinima) {
+        ludoteca.presentar(edadMinima);
+    }
+
+    private void presentar() {
+        ludoteca.presentar();
     }
 
     private void contar() {
@@ -69,7 +75,7 @@ public class Mundo {
         ludoteca.jugar();
     }
 
-    private void detenerJuego(){
+    private void detenerJuego() {
         ludoteca.detenerJuego();
     }
 

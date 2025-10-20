@@ -47,4 +47,12 @@ public class Ludoteca {
     public void contar() {
         aisha.contar();
     }
+
+    public void presentar() {
+        aisha.presentar();
+    }
+
+    public void presentar(int edadMinima) {
+        aisha.presentar(edadMinima);
+    }
 }
